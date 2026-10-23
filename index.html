@@ -1,71 +1,564 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Global Industrial — Industrial products and solutions.">
-  <title>Global Industrial | Welcome</title>
+  <meta name="theme-color" content="#070b14">
+  <meta name="description" content="globalindustrial.cn — 一个面向全球工业未来的优质域名。目前开放转让洽谈。">
+  <title>Global Industrial — 一个名字，一种可能</title>
   <style>
+    :root {
+      --bg: #070b14;
+      --blue: #82ddff;
+      --muted: #9aaac0;
+      --line: rgba(151, 192, 232, .16);
+    }
+
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #1f2937;
-      background: #f5f7fa;
-      line-height: 1.6;
+      background: var(--bg);
+      color: #f3f7ff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "PingFang SC", "Microsoft YaHei", sans-serif;
+      overflow-x: hidden;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 75% 22%, rgba(23, 95, 155, .22), transparent 42%),
+        radial-gradient(ellipse at 18% 72%, rgba(19, 68, 112, .13), transparent 42%),
+        #070b14;
+    }
+
+    .grid {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .24;
+      background-image:
+        linear-gradient(rgba(105, 163, 215, .09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(105, 163, 215, .09) 1px, transparent 1px);
+      background-size: 58px 58px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 48px));
+      margin: auto;
+    }
+
     header {
-      background: #12345a;
-      color: white;
-      padding: 22px 8%;
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
     }
-    header h1 { margin: 0; font-size: 25px; }
-    main {
-      max-width: 900px;
-      margin: 70px auto;
-      padding: 0 24px;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      font-weight: 650;
+    }
+
+    .brand-mark {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(130, 221, 255, .55);
+      color: var(--blue);
+      transform: rotate(45deg);
+      box-shadow: 0 0 24px rgba(63, 172, 235, .13);
+    }
+
+    .brand-mark span { transform: rotate(-45deg); }
+
+    .header-note {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #8293aa;
+    }
+
+    .hero {
+      min-height: 720px;
+      padding: 100px 0 86px;
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      align-items: center;
+      gap: 54px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 11px;
+      letter-spacing: 3px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: var(--blue);
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 65px);
+      line-height: 1.36;
+      letter-spacing: -2px;
+      font-weight: 550;
+      margin: 30px 0 24px;
+    }
+
+    h1 span {
+      display: block;
+      background: linear-gradient(100deg, #e8f7ff, #7bd8ff 60%, #799cff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .intro {
+      color: #a4b2c6;
+      font-size: 15px;
+      line-height: 2.1;
+      margin: 0;
+    }
+
+    .domain-card {
+      margin-top: 38px;
+      padding: 23px 24px;
+      border: 1px solid rgba(130, 190, 235, .23);
+      border-radius: 4px;
+      background: linear-gradient(135deg,
+        rgba(27, 53, 81, .42), rgba(9, 16, 29, .6));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .domain-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 1px;
+      width: 42%;
+      background: linear-gradient(90deg, transparent, var(--blue));
+    }
+
+    .card-label {
+      color: #7f9ab8;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+    }
+
+    .domain {
+      font-size: clamp(22px, 3vw, 33px);
+      font-weight: 500;
+      letter-spacing: -1px;
+      margin: 15px 0 9px;
+      overflow-wrap: anywhere;
+    }
+
+    .domain-caption {
+      color: #8b9bb0;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 27px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 49px;
+      padding: 0 23px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 13px;
+      transition: .25s ease;
+      border: 1px solid var(--line);
+    }
+
+    .button-primary {
+      color: #06111d;
+      background: var(--blue);
+      border-color: var(--blue);
+      font-weight: 650;
+    }
+
+    .button-primary:hover {
+      background: #d2f4ff;
+      box-shadow: 0 0 30px rgba(130, 221, 255, .2);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary { color: #d3e0f1; }
+
+    .button-secondary:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .visual {
+      position: relative;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbit {
+      width: min(360px, 100%);
+      aspect-ratio: 1;
+      border: 1px solid rgba(130, 221, 255, .2);
+      border-radius: 50%;
+      position: relative;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 80px rgba(37, 125, 196, .07),
+        inset 0 0 80px rgba(37, 125, 196, .05);
+    }
+
+    .orbit::before, .orbit::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(130, 221, 255, .13);
+      border-radius: 50%;
+    }
+
+    .orbit::before { inset: 12%; }
+    .orbit::after { inset: 25%; }
+
+    .core {
+      width: 120px;
+      height: 120px;
+      border: 1px solid rgba(130, 221, 255, .65);
+      transform: rotate(45deg);
+      display: grid;
+      place-items: center;
+      background: rgba(15, 38, 60, .6);
+      box-shadow: 0 0 50px rgba(57, 172, 235, .15);
+    }
+
+    .core span {
+      transform: rotate(-45deg);
+      font-size: 29px;
+      letter-spacing: -2px;
+      color: var(--blue);
+    }
+
+    .satellite {
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 18px var(--blue);
+    }
+
+    .s1 { top: 13%; left: 27%; }
+    .s2 { right: 10%; top: 48%; }
+    .s3 { bottom: 17%; left: 25%; }
+
+    .visual-caption {
+      position: absolute;
+      bottom: 0;
       text-align: center;
+      color: #7589a3;
+      font-size: 10px;
+      line-height: 2;
+      letter-spacing: 2px;
     }
-    .panel {
-      background: white;
-      padding: 48px 28px;
-      border-radius: 12px;
-      box-shadow: 0 5px 24px rgba(0,0,0,.06);
+
+    .section {
+      border-top: 1px solid var(--line);
+      padding: 78px 0;
     }
-    h2 { font-size: 34px; margin-top: 0; color: #12345a; }
-    p { color: #596579; font-size: 17px; }
-    footer {
-      text-align: center;
-      padding: 24px;
-      color: #6b7280;
+
+    .section-kicker {
+      color: var(--blue);
+      font-size: 10px;
+      letter-spacing: 3px;
+    }
+
+    .section h2 {
+      font-size: clamp(27px, 4vw, 42px);
+      font-weight: 500;
+      line-height: 1.55;
+      margin: 19px 0;
+      letter-spacing: -1px;
+    }
+
+    .section-copy {
+      max-width: 670px;
+      color: #9eacc0;
       font-size: 14px;
+      line-height: 2.1;
     }
-    @media (max-width: 600px) {
-      main { margin: 32px auto; }
-      h2 { font-size: 27px; }
-      .panel { padding: 32px 20px; }
+
+    .possibilities {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 42px;
+    }
+
+    .possibility {
+      border: 1px solid var(--line);
+      padding: 27px 24px;
+      background: rgba(14, 24, 40, .42);
+      min-height: 180px;
+    }
+
+    .possibility .num {
+      color: #6fabc9;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .possibility h3 {
+      font-size: 17px;
+      font-weight: 500;
+      margin: 23px 0 12px;
+    }
+
+    .possibility p {
+      font-size: 12px;
+      line-height: 1.9;
+      color: #8f9eb3;
+      margin: 0;
+    }
+
+    .transfer {
+      text-align: center;
+      padding: 95px 0 100px;
+      border-top: 1px solid var(--line);
+      background: radial-gradient(ellipse at center top,
+        rgba(34, 94, 140, .13), transparent 65%);
+    }
+
+    .transfer h2 {
+      font-size: clamp(28px, 4vw, 45px);
+      font-weight: 500;
+      margin: 22px 0;
+    }
+
+    .transfer p {
+      color: #9eacc0;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(130, 221, 255, .25);
+      padding: 10px 16px;
+      color: #b4eaff;
+      font-size: 12px;
+      margin: 19px 0 27px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #82ddff;
+      box-shadow: 0 0 12px #82ddff;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 0;
+      color: #6e8097;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 760px) {
+      .wrap { width: calc(100% - 36px); }
+      header { height: 72px; }
+      .brand { font-size: 10px; letter-spacing: 1.5px; }
+      .header-note { font-size: 9px; letter-spacing: 1px; }
+      .hero {
+        padding: 72px 0 60px;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        min-height: auto;
+      }
+      h1 { letter-spacing: -1.5px; }
+      .visual { min-height: 340px; }
+      .orbit { width: 285px; }
+      .core { width: 95px; height: 95px; }
+      .core span { font-size: 24px; }
+      .possibilities { grid-template-columns: 1fr; }
+      .possibility { min-height: auto; }
+      .section { padding: 60px 0; }
+      .transfer { padding: 72px 0; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .orbit { animation: breathe 8s ease-in-out infinite; }
+      .satellite { animation: pulse 3s ease-in-out infinite alternate; }
+      @keyframes breathe {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.025); }
+      }
+      @keyframes pulse {
+        from { opacity: .5; }
+        to { opacity: 1; }
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Global Industrial</h1>
+  <div class="grid" aria-hidden="true"></div>
+
+  <header class="wrap">
+    <a class="brand" href="#" aria-label="Global Industrial 首页">
+      <span class="brand-mark"><span>G</span></span>
+      <span>GLOBAL INDUSTRIAL</span>
+    </a>
+    <div class="header-note">A DIGITAL ASSET</div>
   </header>
 
   <main>
-    <section class="panel">
-      <h2>Welcome to Global Industrial</h2>
-      <p>
-        We are building our online presence to better serve
-        our customers and partners around the world.
-      </p>
-      <p>Thank you for visiting our website.</p>
+    <section class="hero wrap">
+      <div>
+        <div class="eyebrow">A DOMAIN. A POSSIBILITY.</div>
+        <h1>
+          连接全球视野，
+          <span>定义工业未来。</span>
+        </h1>
+        <p class="intro">
+          有些名字，只是一个地址。<br>
+          有些名字，却能成为一个品牌走向世界的起点。<br>
+          在数字世界里，为未来留下一种可能。
+        </p>
+
+        <div class="domain-card">
+          <div class="card-label">PREMIUM DOMAIN</div>
+          <div class="domain">globalindustrial.cn</div>
+          <div class="domain-caption">全球视野 · 工业愿景 · 品牌可能</div>
+        </div>
+
+        <div class="actions">
+          <a class="button button-primary" href="#contact">
+            探索转让可能 <span>↗</span>
+          </a>
+          <a class="button button-secondary"
+             href="https://globalindustrial.cn">
+            访问此域名 <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="visual" aria-label="抽象数字轨道视觉">
+        <div class="orbit">
+          <div class="core"><span>G.I</span></div>
+          <i class="satellite s1"></i>
+          <i class="satellite s2"></i>
+          <i class="satellite s3"></i>
+        </div>
+        <div class="visual-caption">
+          GLOBAL CONNECTIONS<br>
+          INDUSTRIAL POSSIBILITIES
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-kicker">BEYOND A DOMAIN NAME</div>
+        <h2>名字的价值，<br>在于它所能抵达的未来。</h2>
+        <p class="section-copy">
+          Global，意味着跨越边界的视野；Industrial，承载着制造、
+          技术与产业发展的广阔想象。二者相遇，让这个域名拥有了
+          面向全球工业领域的品牌联想与延展空间。
+        </p>
+
+        <div class="possibilities">
+          <article class="possibility">
+            <div class="num">01 / GLOBAL</div>
+            <h3>面向世界的视野</h3>
+            <p>适用于希望建立国际形象、连接全球市场的品牌构想。</p>
+          </article>
+          <article class="possibility">
+            <div class="num">02 / INDUSTRIAL</div>
+            <h3>面向产业的表达</h3>
+            <p>连接工业制造、供应链、设备技术与产业服务等领域。</p>
+          </article>
+          <article class="possibility">
+            <div class="num">03 / POSSIBILITY</div>
+            <h3>面向未来的空间</h3>
+            <p>一个名称，可以从今天的数字入口，延伸为未来的品牌资产。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="transfer" id="contact">
+      <div class="wrap">
+        <div class="section-kicker">NOW OPEN FOR DISCUSSION</div>
+        <h2>好名字，值得遇见<br>真正懂它的人。</h2>
+        <p>
+          globalindustrial.cn 目前可洽谈转让。<br>
+          如果你正在寻找一个契合全球工业愿景的域名，<br>
+          欢迎联系，进一步交流转让意向。
+        </p>
+        <div class="status">
+          <span class="status-dot"></span>
+          当前状态：开放转让洽谈
+        </div>
+        <div>
+          <!-- 请将下面的邮箱替换为你真实使用的联系邮箱 -->
+          <a class="button button-primary"
+             href="mailto:itissing@gmail.com?subject=globalindustrial.cn%20%E5%9F%9F%E5%90%8D%E8%BD%AC%E8%AE%A9%E5%92%A8%E8%AF%A2">
+            联系洽谈 <span>↗</span>
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2026 Global Industrial. All rights reserved.
+    <div class="wrap footer-inner">
+      <span>© 2026 GLOBALINDUSTRIAL.CN</span>
+      <span>A NAME FOR THE NEXT CHAPTER.</span>
+    </div>
   </footer>
 </body>
 </html>
